@@ -1,6 +1,10 @@
 *{
     margin: 0;
     padding: 0;
+  
+}
+html, body {
+    overflow-x: hidden;
 }
 
 body{
@@ -18,8 +22,14 @@ body{
 }
 .nav{
     height: 12vh;
+    background-color: #000C32;
+   
     
 }
+/* .fixed{
+    position: fixed;
+} */
+
 ul{
     color: white;
     height: 12vh;
@@ -38,7 +48,7 @@ li{
 }
 .left{
     width: 30vw;
-    padding: 0px 40vw 0px 2vw;
+    padding: 0px 36vw 0px 2vw;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -98,9 +108,16 @@ li{
     box-shadow:  0 0 30px 4px rgba(255, 255, 255, 0.4);
 
 } */
+ .fixed{
+    position: fixed;
+    z-index: 10;
+ }
 .main
 {
     display: flex;
+    position: absolute;
+    top: 12.2vh;  
+    z-index: 1;
 }
 .saf{
     width: 20vw;
@@ -216,7 +233,7 @@ li{
     
 }
 .image{
-    height: 40vh;
+    height: 41vh;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background-repeat: no-repeat;
@@ -224,20 +241,7 @@ li{
    background-position: center center;
    
 }
-.title{
-    height: 7vh;
-    display: flex;
-    justify-content: left;
-    padding: 0px 0px 0px 10px;
-    align-items: center;
-    color: black;
-    font-family: 'Poppins', sans-serif; 
-    font-weight: 600;
-    font-style: normal; 
-    font-size: 3vh;
-    overflow:auto;
 
-}
 .pab
 {
     display: flex;
@@ -287,6 +291,35 @@ li{
     cursor: pointer;
 
 }
+
+.back{
+    display: flex;
+    flex-direction: column;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    width: 100%;
+    position: absolute;
+}
+.title{
+    height: 7vh;
+    display: flex;
+    justify-content: left;
+    padding: 0px 0px 0px 10px;
+    align-items: center;
+    color: black;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600;
+    font-style: normal; 
+    font-size: 3vh;
+    overflow:auto;
+
+}
+.des{
+    padding: 0px 0px 0px 10px;
+    height: 47.5vh;
+    font-size: 2.1vh;
+    overflow: auto;
+}
 .minus{
     height: 5.5vh;
     border-bottom-right-radius: 10px;
@@ -300,22 +333,6 @@ li{
     font-size: 1.9rem;
     color: white;
     cursor: pointer;
-}
-.back{
-    display: flex;
-    flex-direction: column;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    width: 100%;
-   
-    position: absolute;
-    
-}
-.des{
-    padding: 0px 0px 0px 10px;
-    height: 47.9vh;
-    font-size: 2.1vh;
-    overflow: auto;
 }
 .front{
     backface-visibility: hidden;
@@ -365,7 +382,7 @@ li{
 @media (min-width: 768px ) and (max-width: 1200px)
 {
     .cards{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
     }
     .card{
         height: 50vh;
@@ -375,6 +392,10 @@ li{
     }
     .title{
         font-size: 2vh;
+    }
+    .des{
+        font-size: 1.5vh;
+        height: 37.5vh;
     }
 }
 
