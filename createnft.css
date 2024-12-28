@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #000C32;
+    font-family: 'Poppins', sans-serif;
+}
+.container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10vh;
+    left: 20vw;
+    border: 2px solid #EBB306 ;
+    height: 80vh;
+    width: 60vw;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+h1
+{
+    font-family: 'Poppins', sans-serif;
+}
+#tit
+{
+    width: 22vw;
+    height: 6vh;
+    border-radius: 10px;
+    padding: 0px 0px 0px 10px;
+}
+#pri
+{
+    width: 5vw;
+    height: 6vh;
+    border-radius: 10px;
+    padding: 0px 0px 0px 10px;
+}
+#file
+{
+    width: 22vw;
+    height: 6vh;
+    border-radius: 10px;
+    padding: 0px 0px 0px 10px;
+    margin: 0px 2vw 0px 0px;
+}
+#descr
+{
+    width: 24vw;
+    height: 6vh;
+    border-radius: 10px;
+    padding: 0px 0px 0px 10px;
+}
+.fipri
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fipri,.descr
+{
+    margin: 3vh;
+}
+.tit
+{
+    margin: 8vh 0px 3vh 0px;
+}
+label
+{
+    position: absolute;
+    left: 0vw;
+    bottom: 5vh;
+    background-color: white;
+
+}
+.tit,.file,.descr,.pri
+{
+    position: relative;
+}
+button{
+    width: 18vw;
+    height: 6vh;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    margin: 3vh 0px 0px 0px;
+
+}
+

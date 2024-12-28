@@ -9,8 +9,11 @@ document.getElementById("signin").addEventListener("click", (event) => {
 });
 
 
-let array=[
-  {
+let array=[]
+function iniarr()
+{
+  array=[
+    {
     image:  "url(images/image1.jpg)",
     title: "Hyped Monkey #234",
     price: 56,
@@ -102,11 +105,15 @@ let array=[
   },
   
 ];
+
+}
+iniarr();
+
 function arraylength()
 {
   return array.length;
 }
-function displaycards()
+function displaycards(array)
 {
 
   array.forEach((element) => {
@@ -142,7 +149,7 @@ function displaycards()
   
   });
 }
-displaycards();
+displaycards(array);
 
 let card = document.querySelector(".card");
 let cards=document.querySelector(".cards");
@@ -227,7 +234,7 @@ sortbtn.addEventListener("click",()=>{
         }
       }
       cards.innerHTML="";
-      displaycards();
+      displaycards(array);
     
   }
   else if(radio[1].checked)
@@ -248,7 +255,7 @@ sortbtn.addEventListener("click",()=>{
       }
     }
     cards.innerHTML="";
-    displaycards();
+    displaycards(array);
   }
   else{
     alert("Select any radio button!!")
@@ -288,6 +295,28 @@ filterhead.addEventListener("click", (event) => {
             <label for="maxp"></label></div>
             <div class="contentcenter"><button class="filterbtn">Filter</button></div>`
     filter.appendChild(div);
+
+    let filterbtn=document.querySelector(".filterbtn")
+    filterbtn.addEventListener("click",()=>
+    {
+      let minprice=document.getElementById("minp").value
+      let maxprice=document.getElementById("maxp").value
+      console.log(minprice,maxprice)
+      iniarr();
+      
+      let len=array.length;
+      let newarr=[];
+      for(let i=0;i<len;i++)
+      {
+       if(array[i].price>=minprice && array[i].price<=maxprice)
+       {
+        newarr.push(array[i]);
+       }
+      }
+      cards.innerHTML=""
+      displaycards(newarr);
+
+    })
   }
 });
 
