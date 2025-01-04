@@ -23,6 +23,7 @@ body{
 .nav{
     height: 12vh;
     background-color: #000C32;
+    width: 100vw;
    
     
 }
@@ -341,14 +342,20 @@ li{
    
 }
 @media (max-width: 450px) {
+   body{
+    overflow-x: hidden;
+   }
     .cards{
         grid-template-columns: repeat(1,1fr);
+        width: 69.8vw;
     }
     li{
         font-size: 1.5vh;
     }
     .left{
-        width: 24vw;
+        width: 44vw;
+        font-size: 1.2rem;
+        padding: 0px 11vw 0px 2vw;
     }
     .bc1,.bc2,.bc3{
         width: 10vw;
@@ -365,10 +372,49 @@ li{
     }
     .card{
         height: 50vh;
+        
+    }
+    .des{
+        height: 37.5vh;
     }
     .image{
         height: 30vh;
     }
+    .saf{
+        width: 30vw;
+    }
+    .sorthead{
+        font-size: 2.5vh;
+    }
+    .filterhead{
+        font-size: 2vh;
+    }
+    .sortbtn{
+        width: 15vw;
+    }
+    .filterbtn
+    {
+        width: 15vw;
+    }
+    input::placeholder
+    {
+        font-size: 1.5vh;
+    }
+    #maxp,#minp
+    {
+        padding: 0px 15px 0px;
+    }
+    label
+    {
+        font-size: 2vh;
+    }
+    .bc1,.bc2,.bc3 
+    {
+        width: 11vw;
+    }
+       
+    
+
 }
 @media (min-width: 450px ) and (max-width: 768px){
     .cards{
@@ -386,9 +432,10 @@ li{
     }
     .card{
         height: 50vh;
+       
     }
     .image{
-        height: 30vh;
+        height: 31vh;
     }
     .title{
         font-size: 2vh;
@@ -396,6 +443,12 @@ li{
     .des{
         font-size: 1.5vh;
         height: 37.5vh;
+    }
+    .sorthead{
+        font-size: 2.5vh;
+    }
+    .filterhead{
+        font-size: 2vh;
     }
 }
 

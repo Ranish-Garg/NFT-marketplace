@@ -1,6 +1,6 @@
  
  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
- import {  getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+ import {  getAuth, signInWithEmailAndPassword,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
  
  const firebaseConfig = {
@@ -16,6 +16,16 @@
  const app = initializeApp(firebaseConfig);
  const auth = getAuth();
 
+ let isUserSignedIn = 0; 
+
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    isUserSignedIn = 1; 
+    isUserSignedIn = 0; 
+  }
+});
+
 
  
 
@@ -28,7 +38,7 @@
 
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
- 
+    
     window.location.href="project.html"
     const user = userCredential.user;
    
@@ -41,3 +51,6 @@
   });
     
  })
+
+ export { isUserSignedIn };
+ 

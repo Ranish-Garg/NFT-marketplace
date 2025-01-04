@@ -1,3 +1,21 @@
+import {ethers} from "https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"
+let array=[]
+let storedArray = JSON.parse(localStorage.getItem("array"));
+
+
+if (!storedArray || storedArray.length === 0) {
+  console.log("No data found in localStorage. Initializing default array.");
+  iniarr(); 
+  storedArray = array; 
+  localStorage.setItem("array", JSON.stringify(storedArray)); 
+} else {
+  console.log("Data found in localStorage:", storedArray);
+}
+
+displaycards(storedArray); 
+
+
+
 document.getElementById("signup").addEventListener("click", (event) => {
   event.preventDefault();
   window.location.href = "signup.html";
@@ -9,14 +27,13 @@ document.getElementById("signin").addEventListener("click", (event) => {
 });
 
 
-let array=[]
 function iniarr()
 {
   array=[
     {
     image:  "url(images/image1.jpg)",
     title: "Hyped Monkey #234",
-    price: 56,
+    price: 0.56,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -26,7 +43,7 @@ function iniarr()
   {
     image:  "url(images/image2.jpg)",
     title: "Hyped Monkey #235",
-    price: 102,
+    price: 0.10,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -36,7 +53,7 @@ function iniarr()
   {
     image:  "url(images/image3.jpg)",
     title: "Hyped Monkey #236",
-    price: 34,
+    price: 0.34,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -46,7 +63,7 @@ function iniarr()
   {
     image:  "url(images/image4.jpg)",
     title: "Hyped Monkey #237",
-    price: 117,
+    price: 0.17,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -56,7 +73,7 @@ function iniarr()
   {
     image:  "url(images/image5.jpg)",
     title: "Hyped Monkey #238",
-    price: 78,
+    price: 0.78,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -66,7 +83,7 @@ function iniarr()
   {
     image:  "url(images/image6.jpg)",
     title: "Hyped Monkey #239",
-    price: 58,
+    price: 0.58,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -76,7 +93,7 @@ function iniarr()
   {
     image:  "url(images/image7.jpg)",
     title: "Hyped Monkey #240",
-    price: 98,
+    price: 0.98,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -86,7 +103,7 @@ function iniarr()
   {
     image:  "url(images/image8.jpg)",
     title: "Hyped Monkey #241",
-    price: 68,
+    price: 0.68,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -96,7 +113,7 @@ function iniarr()
   {
     image:  "url(images/image9.jpg)",
     title: "Hyped Monkey #242",
-    price: 113,
+    price: 0.13,
     description:  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
     tenetur ab velit in et, delectus temporibus, provident
     perferendis, autem recusandae cumque sequi magni vero nobis
@@ -130,7 +147,7 @@ function displaycards(array)
                 <div class="pab">
                   <div class="price">
                     Price :
-                    <div class="pvalue">${element.price}</div>
+                    <div class="pvalue">${element.price} ETH</div>
                   </div>
                   <button class="buy">Buy</button>
                 </div>
@@ -149,7 +166,7 @@ function displaycards(array)
   
   });
 }
-displaycards(array);
+// displaycards(array);
 
 let card = document.querySelector(".card");
 let cards=document.querySelector(".cards");
@@ -166,7 +183,7 @@ cards.addEventListener("click",(event)=>
 {
   // event.preventDefault;
   let target=event.target;
-  console.log(target)
+  // console.log(target)
   let closestcard=target.closest(".card")
 
   if(target.className=="plus")
@@ -319,6 +336,70 @@ filterhead.addEventListener("click", (event) => {
     })
   }
 });
+
+let cre= document.getElementById("cre");
+cre.addEventListener("click",()=>
+{
+  window.location.href="createnft.html"
+  
+})
+
+let priceofcard;
+document.querySelector(".cards").addEventListener("click",(event)=>
+{
+  event.preventDefault();
+  let target=event.target;
+  if(target.closest(".buy"))
+  {
+    
+   priceofcard=target.closest(".pab").querySelector(".pvalue").innerHTML.replace(" ETH","");
+   console.log(priceofcard.replace(" ETH",""));
+  }
+})
+
+document.querySelectorAll('.buy').forEach(button => {
+  button.addEventListener('click', async (event) => {
+      const sellerAddress = "0xF41E4fB4e7F1F6E484033c878f078A2DF57dB854"; 
+      const nftCard = event.target.closest('.nft-card'); 
+      const price = priceofcard; 
+      const priceInEther = price.trim(); 
+
+
+
+      if (typeof window.ethereum !== 'undefined') {
+          try {
+              
+              const priceInWei = BigInt(Math.floor(Number(priceInEther) * 1e18)).toString(16);
+
+              
+              const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+              const buyerAddress = accounts[0];
+
+              
+              const transactionParameters = {
+                  to: sellerAddress,
+                  from: buyerAddress,
+                  value: `0x${priceInWei}`,
+              };
+
+             
+              const txHash = await window.ethereum.request({
+                  method: 'eth_sendTransaction',
+                  params: [transactionParameters],
+              });
+
+             
+              document.getElementById('transaction-status').innerText = `Transaction sent: ${txHash}`;
+          } catch (error) {
+              console.error('Transaction failed:', error);
+              document.getElementById('transaction-status').innerText = `Transaction failed: ${error.message}`;
+          }
+      } else {
+          alert('MetaMask is not available.');
+      }
+  });
+});
+
 
 
 
