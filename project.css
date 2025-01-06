@@ -358,7 +358,7 @@ li{
         padding: 0px 11vw 0px 2vw;
     }
     .bc1,.bc2,.bc3{
-        width: 10vw;
+        width: 13vw;
     }
     .button{
         font-size: 1.1rem;
@@ -408,13 +408,7 @@ li{
     {
         font-size: 2vh;
     }
-    .bc1,.bc2,.bc3 
-    {
-        width: 11vw;
-    }
-       
-    
-
+   
 }
 @media (min-width: 450px ) and (max-width: 768px){
     .cards{
@@ -450,6 +444,13 @@ li{
     .filterhead{
         font-size: 2vh;
     }
+    .bc1,.bc2,.bc3{
+        width: 12vw;
+    }
+    .left{
+        width: 23vw;
+    }
+
 }
 
   input[type="radio"] {

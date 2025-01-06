@@ -53,4 +53,5 @@ onAuthStateChanged(auth, (user) => {
  })
 
  export { isUserSignedIn };
+ export {auth};
  

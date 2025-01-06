@@ -8,7 +8,8 @@ if (!storedArray || storedArray.length === 0) {
   iniarr(); 
   storedArray = array; 
   localStorage.setItem("array", JSON.stringify(storedArray)); 
-} else {
+} 
+else {
   console.log("Data found in localStorage:", storedArray);
 }
 
@@ -399,6 +400,8 @@ document.querySelectorAll('.buy').forEach(button => {
       }
   });
 });
+
+
 
 
 

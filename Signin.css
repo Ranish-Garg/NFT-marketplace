@@ -55,3 +55,42 @@ label{
     position: relative;
     left: 6vw;
 }
+@media(max-width: 450px) {
+    .container
+    {
+        height: 60vh;
+        top: 20vh;
+    }
+    input
+    {
+        width: 35vw;
+        height: 4vh;
+        border-radius: 10px;
+        padding: 0px 10px 0px; 
+    }
+    label
+    {
+        bottom: 3vh;
+    }
+
+}
+@media (min-width: 768px ) and (max-width: 1200px)
+{
+    body 
+    {
+        font-size: 30px;
+    }
+    input 
+    {
+        width: 35vw;
+    }
+    button {
+        width: 27vw;
+    }
+    label {
+        bottom: 4vh;
+    }
+    button {
+        font-size: 30px;
+    }
+}
