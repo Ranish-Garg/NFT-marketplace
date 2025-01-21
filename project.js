@@ -1,4 +1,39 @@
 import {ethers} from "https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import {  getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDqy8SuzquFI-nAQVKQZD6q4EHhkLfvl70",
+  authDomain: "nft-marketplace-563f3.firebaseapp.com",
+  projectId: "nft-marketplace-563f3",
+  storageBucket: "nft-marketplace-563f3.firebasestorage.app",
+  messagingSenderId: "963897332803",
+  appId: "1:963897332803:web:9482743d53832d09e730f6"
+};
+
+ const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+let emailid;
+
+
+// Listen for authentication state changes
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        
+        emailid= user.email;
+        console.log(emailid);
+        document.querySelector(".bc4").innerHTML=`${emailid}`;
+       
+    }
+    else{
+      console.log("not signed in")
+    }
+  });
+  
+ 
+
+
 let array=[]
 let storedArray = JSON.parse(localStorage.getItem("array"));
 
@@ -341,8 +376,17 @@ filterhead.addEventListener("click", (event) => {
 let cre= document.getElementById("cre");
 cre.addEventListener("click",()=>
 {
-  window.location.href="createnft.html"
-  
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+        
+       window.location.href="createnft.html";
+        
+       
+    }
+    else{
+      alert("sign in first!!");
+    }
+  });
 })
 
 let priceofcard;
@@ -400,12 +444,3 @@ document.querySelectorAll('.buy').forEach(button => {
       }
   });
 });
-
-
-
-
-
-
-
-
-

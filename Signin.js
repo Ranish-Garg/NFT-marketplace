@@ -16,18 +16,6 @@
  const app = initializeApp(firebaseConfig);
  const auth = getAuth();
 
- let isUserSignedIn = 0; 
-
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    isUserSignedIn = 1; 
-    isUserSignedIn = 0; 
-  }
-});
-
-
- 
 
  const submit=document.getElementById("submit");
  submit.addEventListener("click",(event)=>{
@@ -52,6 +40,6 @@ onAuthStateChanged(auth, (user) => {
     
  })
 
- export { isUserSignedIn };
+ 
  export {auth};
  

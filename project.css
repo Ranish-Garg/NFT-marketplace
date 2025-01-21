@@ -24,8 +24,9 @@ body{
     height: 12vh;
     background-color: #000C32;
     width: 100vw;
+    display: flex;
+    justify-content: space-between;
    
-    
 }
 /* .fixed{
     position: fixed;
@@ -49,16 +50,18 @@ li{
 }
 .left{
     width: 30vw;
-    padding: 0px 36vw 0px 2vw;
     display: flex;
     justify-content: left;
     align-items: center;
     font-weight: 600;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+    color: white;
+    padding-left: 1vw;
+    
 }
 .hoverb{
     padding: 0px 2vw 0px 0px;
-    cursor: pointer;
+   
 }
 .bc1,.bc2,.bc3{
     display: flex;
@@ -66,7 +69,20 @@ li{
     align-items: center;
     height: 100%;
     width: 9vw;
+    font-size: 22px;
+    cursor: pointer;
 }
+.bc4
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18vw;
+    font-size: 20px;
+}
+
+
 .bc1:hover{
     background-color: #EBB306;
     
@@ -181,7 +197,7 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1vw;
+    gap: 0.8vw;
     height: 7vh;
     /* border: 2px solid gray;
      border-right: 0px;
@@ -350,15 +366,23 @@ li{
         width: 69.8vw;
     }
     li{
-        font-size: 1.5vh;
+        font-size: .5vh;
     }
     .left{
-        width: 44vw;
-        font-size: 1.2rem;
-        padding: 0px 11vw 0px 2vw;
+        width: 32vw;
+        font-size: .9rem;
+        padding-left: 0.5vw;
     }
     .bc1,.bc2,.bc3{
         width: 13vw;
+        font-size: 1.5vh;
+    }
+    .bc4{
+        font-size: 1.3vh;
+        width: 28vw;
+        display: flex;
+        justify-content: center;
+        align-items:center;
     }
     .button{
         font-size: 1.1rem;
@@ -384,10 +408,11 @@ li{
         width: 30vw;
     }
     .sorthead{
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
     .filterhead{
-        font-size: 2vh;
+        font-size: 1.5vh;
+        
     }
     .sortbtn{
         width: 15vw;
@@ -406,7 +431,7 @@ li{
     }
     label
     {
-        font-size: 2vh;
+        font-size: 1.5vh;
     }
    
 }
@@ -439,16 +464,42 @@ li{
         height: 37.5vh;
     }
     .sorthead{
-        font-size: 2.5vh;
+        font-size: 2vh;
     }
     .filterhead{
-        font-size: 2vh;
+        font-size: 1.5vh;
     }
     .bc1,.bc2,.bc3{
         width: 12vw;
     }
     .left{
         width: 23vw;
+    }
+    .bc4{
+        width: 28vw;
+       
+    }
+    .sortbtn{
+        width: 10vw;
+        height: 4vh;
+    }
+    .filterbtn
+    {
+        width: 10vw;
+        height: 4vh;
+    }
+    #minp,#maxp{
+        width: 12vw;
+        height: 4vh;
+        
+    }
+    .price{
+        width: 17vw;
+        height: 4vh;
+    }
+    .buy{
+        width: 10vw;
+        height: 4vh;
     }
 
 }
