@@ -3,6 +3,7 @@
     padding: 0;
   
 }
+
 html, body {
     overflow-x: hidden;
 }
@@ -356,6 +357,10 @@ li{
     position: absolute;
     width: 100%;
    
+}
+.displaynone
+{
+    display: none;
 }
 @media (max-width: 450px) {
    body{

@@ -1,6 +1,6 @@
 import {ethers} from "https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import {  getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import {  getAuth,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDqy8SuzquFI-nAQVKQZD6q4EHhkLfvl70",
@@ -24,13 +24,30 @@ onAuthStateChanged(auth, (user) => {
         emailid= user.email;
         console.log(emailid);
         document.querySelector(".bc4").innerHTML=`${emailid}`;
+        document.getElementById("signout").classList.remove("displaynone");
+        document.getElementById("signin").classList.add("displaynone");
        
     }
     else{
       console.log("not signed in")
+       document.querySelector(".bc4").innerHTML="Guest"
     }
   });
-  
+
+  const signOutUser = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out successfully.");
+       
+        window.location.href = "signin.html"; 
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error.message);
+      });
+  };
+
+  document.getElementById("signout").addEventListener("click",signOutUser)  ;
+
  
 
 
